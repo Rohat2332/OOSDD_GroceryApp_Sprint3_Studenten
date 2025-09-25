@@ -7,7 +7,8 @@ namespace Grocery.Core.Data.Repositories
     public class ClientRepository : IClientRepository
     {
         private readonly List<Client> clientList;
-
+        
+        
         public ClientRepository()
         {
             clientList = [
@@ -17,6 +18,12 @@ namespace Grocery.Core.Data.Repositories
             ];
         }
 
+        public void Add(Client client)
+        {
+            clientList.Add(client);
+        }
+        
+        
         public Client? Get(string email)
         {
             Client? client = clientList.FirstOrDefault(c => c.EmailAddress.Equals(email));
